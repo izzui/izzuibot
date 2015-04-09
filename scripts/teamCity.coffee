@@ -33,7 +33,7 @@ module.exports = (robot) ->
   username = 'hubot'
   password = 'hubot'
   hostname = 'ci.izzui.com:8111'
-  scheme = process.env.HUBOT_TEAMCITY_SCHEME || "http"
+  scheme = "http"
   base_url = "#{scheme}://#{hostname}"
 
   buildTypes = []
@@ -59,7 +59,7 @@ module.exports = (robot) ->
     msg.http(url)
       .headers(getAuthHeader())
       .get() (err, res, body) ->
-        err = body unless res.statusCode == 200
+        err = body unless res && res.statusCode == 200
         callback err, body, msg
 
 
