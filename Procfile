@@ -1,1 +1,1 @@
-web: bin/hubot --adapter slack
+web: npm install; bin/hubot --adapter slack
